@@ -1,0 +1,6 @@
+ad-eureka/target
+ad-gateway/target
+imooc-ad-service/ad-common/target
+#imooc-ad-service/ad-dashboard/target
+imooc-ad-service/ad-search/target
+imooc-ad-service/ad-sponsor/target
