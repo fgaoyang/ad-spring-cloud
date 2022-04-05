@@ -28,12 +28,10 @@ public class AdPlanRequest {
     }
 
     public boolean updateValidate() {
-
         return id != null && userId != null;
     }
 
     public boolean deleteValidate() {
-
         return id != null && userId != null;
     }
 }

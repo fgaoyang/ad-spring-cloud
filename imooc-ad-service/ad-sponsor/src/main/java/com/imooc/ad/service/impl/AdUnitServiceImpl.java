@@ -54,11 +54,10 @@ public class AdUnitServiceImpl implements IAdUnitService {
     private final CreativeUnitRepository creativeUnitRepository;
 
     @Autowired
-    public AdUnitServiceImpl(AdPlanRepository planRepository,
-                             AdUnitRepository unitRepository,
-                             AdUnitKeywordRepository unitKeywordRepository,
-                             AdUnitItRepository unitItRepository,
-                             AdUnitDistrictRepository unitDistrictRepository, CreativeRepository creativeRepository, CreativeUnitRepository creativeUnitRepository) {
+    public AdUnitServiceImpl(AdPlanRepository planRepository, AdUnitRepository unitRepository,
+                             AdUnitKeywordRepository unitKeywordRepository, AdUnitItRepository unitItRepository,
+                             AdUnitDistrictRepository unitDistrictRepository, CreativeRepository creativeRepository,
+                             CreativeUnitRepository creativeUnitRepository) {
         this.planRepository = planRepository;
         this.unitRepository = unitRepository;
         this.unitKeywordRepository = unitKeywordRepository;
