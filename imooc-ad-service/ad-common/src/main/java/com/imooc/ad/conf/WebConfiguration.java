@@ -7,16 +7,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
-/**
- * Created by Qinyi.
- */
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
 
     @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>>
-                                                       converters) {
-
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.clear();
         converters.add(new MappingJackson2HttpMessageConverter());
     }

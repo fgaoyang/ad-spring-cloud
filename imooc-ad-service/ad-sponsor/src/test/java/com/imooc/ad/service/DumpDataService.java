@@ -41,13 +41,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Qinyi.
- */
 @Slf4j
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {Application.class},
-        webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(classes = {Application.class}, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class DumpDataService {
 
     @Autowired
@@ -68,10 +64,7 @@ public class DumpDataService {
     @Test
     public void dumpAdTableData() {
 
-        dumpAdPlanTable(
-                String.format("%s%s", DConstant.DATA_ROOT_DIR,
-                        DConstant.AD_PLAN)
-        );
+        dumpAdPlanTable(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_PLAN));
         dumpAdUnitTable(
                 String.format("%s%s", DConstant.DATA_ROOT_DIR,
                         DConstant.AD_UNIT)
@@ -100,9 +93,7 @@ public class DumpDataService {
 
     private void dumpAdPlanTable(String fileName) {
 
-        List<AdPlan> adPlans = planRepository.findAllByPlanStatus(
-                CommonStatus.VALID.getStatus()
-        );
+        List<AdPlan> adPlans = planRepository.findAllByPlanStatus(CommonStatus.VALID.getStatus());
         if (CollectionUtils.isEmpty(adPlans)) {
             return;
         }
@@ -124,7 +115,6 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(planTable));
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException ex) {
             log.error("dumpAdPlanTable error");
         }
@@ -132,22 +122,14 @@ public class DumpDataService {
 
     private void dumpAdUnitTable(String fileName) {
 
-        List<AdUnit> adUnits = unitRepository.findAllByUnitStatus(
-                CommonStatus.VALID.getStatus()
-        );
+        List<AdUnit> adUnits = unitRepository.findAllByUnitStatus(CommonStatus.VALID.getStatus());
         if (CollectionUtils.isEmpty(adUnits)) {
             return;
         }
 
         List<AdUnitTable> unitTables = new ArrayList<>();
         adUnits.forEach(u -> unitTables.add(
-                new AdUnitTable(
-                        u.getId(),
-                        u.getUnitStatus(),
-                        u.getPositionType(),
-                        u.getPlanId()
-                )
-        ));
+                new AdUnitTable(u.getId(), u.getUnitStatus(), u.getPositionType(), u.getPlanId())));
 
         Path path = Paths.get(fileName);
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
@@ -155,7 +137,6 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(unitTable));
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException ex) {
             log.error("dumpAdUnitTable error");
         }
@@ -188,7 +169,6 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(creativeTable));
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException ex) {
             log.error("dumpAdCreativeTable error");
         }
@@ -215,7 +195,6 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(creativeUnitTable));
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException ex) {
             log.error("dumpAdCreativeUnit error");
         }
@@ -243,7 +222,6 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(unitDistrictTable));
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException ex) {
             log.error("dumpAdUnitDistrictTable error");
         }
@@ -270,7 +248,6 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(unitItTable));
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException ex) {
             log.error("dumpAdUnitItTable error");
         }
@@ -297,9 +274,8 @@ public class DumpDataService {
                 writer.write(JSON.toJSONString(unitKeywordTable));
                 writer.newLine();
             }
-            writer.close();
         } catch (IOException ex) {
-            log.error("dumpAdUnitItTable error");
+            log.error("dumpAdUnitKeywordTable error");
         }
     }
 }

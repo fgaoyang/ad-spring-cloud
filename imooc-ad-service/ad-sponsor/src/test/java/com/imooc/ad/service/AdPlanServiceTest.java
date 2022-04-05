@@ -11,12 +11,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Collections;
 
-/**
- * Created by Qinyi.
- */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {Application.class},
-        webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(classes = {Application.class}, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class AdPlanServiceTest {
 
     @Autowired
@@ -24,11 +20,6 @@ public class AdPlanServiceTest {
 
     @Test
     public void testGetAdPlan() throws AdException {
-
-        System.out.println(
-                planService.getAdPlanByIds(
-                        new AdPlanGetRequest(15L, Collections.singletonList(10L))
-                )
-        );
+        System.out.println(planService.getAdPlanByIds(new AdPlanGetRequest(15L, Collections.singletonList(10L))));
     }
 }

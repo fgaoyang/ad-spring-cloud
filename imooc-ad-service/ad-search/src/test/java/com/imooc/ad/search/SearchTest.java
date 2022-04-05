@@ -25,8 +25,7 @@ import java.util.List;
  * Created by Qinyi.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {Application.class},
-        webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(classes = {Application.class}, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class SearchTest {
 
     @Autowired

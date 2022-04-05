@@ -11,9 +11,6 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-/**
- * Created by Qinyi.
- */
 @RestControllerAdvice
 public class CommonResponseDataAdvice implements ResponseBodyAdvice<Object> {
 
