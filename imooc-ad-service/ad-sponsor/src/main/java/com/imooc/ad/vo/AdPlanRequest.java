@@ -5,9 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang.StringUtils;
 
-/**
- * Created by Qinyi.
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,7 +17,6 @@ public class AdPlanRequest {
     private String endDate;
 
     public boolean createValidate() {
-
         return userId != null
                 && !StringUtils.isEmpty(planName)
                 && !StringUtils.isEmpty(startDate)
