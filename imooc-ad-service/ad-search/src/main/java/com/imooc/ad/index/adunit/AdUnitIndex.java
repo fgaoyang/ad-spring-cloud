@@ -29,8 +29,7 @@ public class AdUnitIndex implements IndexAware<Long, AdUnitObject> {
         Set<Long> adUnitIds = new HashSet<>();
 
         objectMap.forEach((k, v) -> {
-            if (AdUnitObject.isAdSlotTypeOK(positionType,
-                    v.getPositionType())) {
+            if (AdUnitObject.isAdSlotTypeOK(positionType, v.getPositionType())) {
                 adUnitIds.add(k);
             }
         });

@@ -9,14 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
-/**
- * Created by Qinyi.
- */
 @Data
 public class ParseTemplate {
 
     private String database;
-
     private Map<String, TableTemplate> tableTemplateMap = new HashMap<>();
 
     public static ParseTemplate parse(Template _template) {
@@ -39,33 +35,20 @@ public class ParseTemplate {
                     tableTemplate.getOpTypeFieldSetMap();
 
             for (JsonTable.Column column : table.getInsert()) {
-                getAndCreateIfNeed(
-                        OpType.ADD,
-                        opTypeFieldSetMap,
-                        ArrayList::new
-                ).add(column.getColumn());
+                getAndCreateIfNeed(OpType.ADD, opTypeFieldSetMap, ArrayList::new).add(column.getColumn());
             }
             for (JsonTable.Column column : table.getUpdate()) {
-                getAndCreateIfNeed(
-                        OpType.UPDATE,
-                        opTypeFieldSetMap,
-                        ArrayList::new
-                ).add(column.getColumn());
+                getAndCreateIfNeed(OpType.UPDATE, opTypeFieldSetMap, ArrayList::new).add(column.getColumn());
             }
             for (JsonTable.Column column : table.getDelete()) {
-                getAndCreateIfNeed(
-                        OpType.DELETE,
-                        opTypeFieldSetMap,
-                        ArrayList::new
-                ).add(column.getColumn());
+                getAndCreateIfNeed(OpType.DELETE, opTypeFieldSetMap, ArrayList::new).add(column.getColumn());
             }
         }
 
         return template;
     }
 
-    private static <T, R> R getAndCreateIfNeed(T key, Map<T, R> map,
-                                               Supplier<R> factory) {
+    private static <T, R> R getAndCreateIfNeed(T key, Map<T, R> map, Supplier<R> factory) {
         return map.computeIfAbsent(key, k -> factory.get());
     }
 }

@@ -14,9 +14,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.stream.Collectors;
 
-/**
- * Created by Qinyi.
- */
 @Slf4j
 @Component
 public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
@@ -68,10 +65,7 @@ public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
 
         log.info("UnitDistrictIndex, before delete: {}", unitDistrictMap);
 
-        Set<Long> unitIds = CommonUtils.getorCreate(
-                key, districtUnitMap,
-                ConcurrentSkipListSet::new
-        );
+        Set<Long> unitIds = CommonUtils.getorCreate(key, districtUnitMap, ConcurrentSkipListSet::new);
         unitIds.removeAll(value);
 
         for (Long unitId : value) {
@@ -86,8 +80,7 @@ public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
         log.info("UnitDistrictIndex, after delete: {}", unitDistrictMap);
     }
 
-    public boolean match(Long adUnitId,
-                         List<DistrictFeature.ProvinceAndCity> districts) {
+    public boolean match(Long adUnitId, List<DistrictFeature.ProvinceAndCity> districts) {
 
         if (unitDistrictMap.containsKey(adUnitId) &&
                 CollectionUtils.isNotEmpty(unitDistrictMap.get(adUnitId))) {
@@ -95,11 +88,8 @@ public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
             Set<String> unitDistricts = unitDistrictMap.get(adUnitId);
 
             List<String> targetDistricts = districts.stream()
-                    .map(
-                            d -> CommonUtils.stringConcat(
-                                    d.getProvince(), d.getCity()
-                            )
-                    ).collect(Collectors.toList());
+                    .map(d -> CommonUtils.stringConcat(d.getProvince(), d.getCity()))
+                    .collect(Collectors.toList());
 
             return CollectionUtils.isSubCollection(targetDistricts, unitDistricts);
         }

@@ -9,15 +9,11 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-/**
- * Created by Qinyi.
- */
 @Slf4j
 @Component
 public class BinlogClient {
 
     private BinaryLogClient client;
-
     private final BinlogConfig config;
     private final AggregationListener listener;
 

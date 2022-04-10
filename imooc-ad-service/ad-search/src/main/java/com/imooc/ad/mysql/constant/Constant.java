@@ -3,9 +3,6 @@ package com.imooc.ad.mysql.constant;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Qinyi.
- */
 public class Constant {
 
     private static final String DB_NAME = "imooc_ad_data";

@@ -17,9 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Qinyi.
- */
 @Slf4j
 @Component
 public class IncrementListener implements Ilistener {

@@ -24,9 +24,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * Created by Qinyi.
- */
 @Slf4j
 @Component
 public class AggregationListener implements BinaryLogClient.EventListener {
@@ -89,7 +86,6 @@ public class AggregationListener implements BinaryLogClient.EventListener {
         log.info("trigger event: {}", type.name());
 
         try {
-
             BinlogRowData rowData = buildRowData(event.getData());
             if (rowData == null) {
                 return;
@@ -97,7 +93,6 @@ public class AggregationListener implements BinaryLogClient.EventListener {
 
             rowData.setEventType(type);
             listener.onEvent(rowData);
-
         } catch (Exception ex) {
             ex.printStackTrace();
             log.error(ex.getMessage());
@@ -141,10 +136,7 @@ public class AggregationListener implements BinaryLogClient.EventListener {
 
             Map<String, String> afterMap = new HashMap<>();
 
-            int colLen = after.length;
-
-            for (int ix = 0; ix < colLen; ++ix) {
-
+            for (int ix = 0; ix < after.length; ++ix) {
                 // 取出当前位置对应的列名
                 String colName = table.getPosMap().get(ix);
 

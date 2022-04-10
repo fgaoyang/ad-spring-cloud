@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableCircuitBreaker
 @EnableDiscoveryClient
 @EnableHystrixDashboard
-@SpringBootApplication
+@SpringBootApplication()
 public class SearchApplication {
 
     public static void main(String[] args) {

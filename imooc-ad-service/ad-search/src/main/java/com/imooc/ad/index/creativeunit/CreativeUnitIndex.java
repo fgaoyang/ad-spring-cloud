@@ -14,13 +14,9 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
-/**
- * Created by Qinyi.
- */
 @Slf4j
 @Component
-public class CreativeUnitIndex implements
-        IndexAware<String, CreativeUnitObject> {
+public class CreativeUnitIndex implements IndexAware<String, CreativeUnitObject> {
 
     // <adId-unitId, CreativeUnitObject>
     private static Map<String, CreativeUnitObject> objectMap;

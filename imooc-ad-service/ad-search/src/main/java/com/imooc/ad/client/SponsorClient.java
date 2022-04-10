@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(value = "eureka-client-ad-sponsor", fallback = SponsorClientHystrix.class)
+@FeignClient(value = "eureka-client-ad-sponsor",
+        fallback = SponsorClientHystrix.class)
 public interface SponsorClient {
 
     @RequestMapping(value = "/ad-sponsor/get/adPlan", method = RequestMethod.POST)

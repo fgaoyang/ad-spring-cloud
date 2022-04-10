@@ -1,4 +1,4 @@
-package com.imooc.ad.mysql.dto;
+package com.imooc.ad.search.vo.feature;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Template {
+public class ItFeature {
 
-    private String database;
-    private List<JsonTable> tableList;
+    private List<String> its;
 }
