@@ -44,7 +44,7 @@ import java.util.List;
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {Application.class}, webEnvironment = SpringBootTest.WebEnvironment.NONE)
-public class DumpDataService {
+public class DumpDataServiceTest {
 
     @Autowired
     private AdPlanRepository planRepository;
@@ -65,30 +65,12 @@ public class DumpDataService {
     public void dumpAdTableData() {
 
         dumpAdPlanTable(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_PLAN));
-        dumpAdUnitTable(
-                String.format("%s%s", DConstant.DATA_ROOT_DIR,
-                        DConstant.AD_UNIT)
-        );
-        dumpAdCreativeTable(
-                String.format("%s%s", DConstant.DATA_ROOT_DIR,
-                        DConstant.AD_CREATIVE)
-        );
-        dumpAdCreativeUnitTable(
-                String.format("%s%s", DConstant.DATA_ROOT_DIR,
-                        DConstant.AD_CREATIVE_UNIT)
-        );
-        dumpAdUnitDistrictTable(
-                String.format("%s%s", DConstant.DATA_ROOT_DIR,
-                        DConstant.AD_UNIT_DISTRICT)
-        );
-        dumpAdUnitItTable(
-                String.format("%s%s", DConstant.DATA_ROOT_DIR,
-                        DConstant.AD_UNIT_IT)
-        );
-        dumpAdUnitKeywordTable(
-                String.format("%s%s", DConstant.DATA_ROOT_DIR,
-                        DConstant.AD_UNIT_KEYWORD)
-        );
+        dumpAdUnitTable(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT));
+        dumpAdCreativeTable(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_CREATIVE));
+        dumpAdCreativeUnitTable(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_CREATIVE_UNIT));
+        dumpAdUnitDistrictTable(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_DISTRICT));
+        dumpAdUnitItTable(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_IT));
+        dumpAdUnitKeywordTable(String.format("%s%s", DConstant.DATA_ROOT_DIR, DConstant.AD_UNIT_KEYWORD));
     }
 
     private void dumpAdPlanTable(String fileName) {
