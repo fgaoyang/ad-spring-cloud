@@ -9,9 +9,6 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by Qinyi.
- */
 @Slf4j
 @Component
 public class AccessLogFilter extends ZuulFilter {
@@ -32,8 +29,7 @@ public class AccessLogFilter extends ZuulFilter {
     }
 
     @Override
-    public Object run() throws ZuulException {
-
+    public Object run() {
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
         Long startTime = (Long) context.get("startTime");

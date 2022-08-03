@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Created by Qinyi.
- */
 @Slf4j
 @RestController
 public class UserOPController {
@@ -28,8 +25,7 @@ public class UserOPController {
     @PostMapping("/create/user")
     public CreateUserResponse createUser(
             @RequestBody CreateUserRequest request) throws AdException {
-        log.info("ad-sponsor: createUser -> {}",
-                JSON.toJSONString(request));
+        log.info("ad-sponsor: createUser -> {}", JSON.toJSONString(request));
         return userService.createUser(request);
     }
 }

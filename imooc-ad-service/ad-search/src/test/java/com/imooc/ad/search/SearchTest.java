@@ -40,83 +40,53 @@ public class SearchTest {
                 Collections.singletonList(new AdSlot(
                         "ad-x", 1,
                         1080, 720, Arrays.asList(1, 2),
-                        1000
-                )),
+                        1000)),
                 buildExampleApp(),
                 buildExampleGeo(),
-                buildExampleDevice()
-        ));
+                buildExampleDevice()));
         request.setFeatureInfo(buildExampleFeatureInfo(
                 Arrays.asList("宝马", "大众"),
-                Collections.singletonList(
-                        new DistrictFeature.ProvinceAndCity(
-                                "安徽省", "合肥市")),
+                Collections.singletonList(new DistrictFeature.ProvinceAndCity("安徽省", "合肥市")),
                 Arrays.asList("台球", "游泳"),
-                FeatureRelation.OR
-        ));
+                FeatureRelation.OR));
         System.out.println(JSON.toJSONString(request));
         System.out.println(JSON.toJSONString(search.fetchAds(request)));
 
         // 第二个测试条件
         request.setRequestInfo(new SearchRequest.RequestInfo(
                 "aaa",
-                Collections.singletonList(new AdSlot(
-                        "ad-y", 1,
-                        1080, 720, Arrays.asList(1, 2),
-                        1000
-                )),
+                Collections.singletonList(new AdSlot("ad-y", 1,
+                        1080, 720, Arrays.asList(1, 2), 1000)),
                 buildExampleApp(),
                 buildExampleGeo(),
-                buildExampleDevice()
-        ));
+                buildExampleDevice()));
         request.setFeatureInfo(buildExampleFeatureInfo(
                 Arrays.asList("宝马", "大众", "标志"),
-                Collections.singletonList(
-                        new DistrictFeature.ProvinceAndCity(
-                                "安徽省", "合肥市")),
+                Collections.singletonList(new DistrictFeature.ProvinceAndCity("安徽省", "合肥市")),
                 Arrays.asList("台球", "游泳"),
-                FeatureRelation.AND
-        ));
+                FeatureRelation.AND));
         System.out.println(JSON.toJSONString(request));
         System.out.println(JSON.toJSONString(search.fetchAds(request)));
 
     }
 
     private App buildExampleApp() {
-        return new App("imooc", "imooc",
-                "com.imooc", "video");
+        return new App("imooc", "imooc", "com.imooc", "video");
     }
 
     private Geo buildExampleGeo() {
-        return new Geo((float) 100.28, (float) 88.61,
-                "北京市", "北京市");
+        return new Geo((float) 100.28, (float) 88.61, "北京市", "北京市");
     }
 
     private Device buildExampleDevice() {
-
-        return new Device(
-                "iphone",
-                "0xxxxx",
-                "127.0.0.1",
-                "x",
-                "1080 720",
-                "1080 720",
-                "123456789"
-
-        );
+        return new Device("iphone", "0xxxxx", "127.0.0.1", "x",
+                "1080 720", "1080 720", "123456789");
     }
 
-    private SearchRequest.FeatureInfo buildExampleFeatureInfo(
-            List<String> keywords,
-            List<DistrictFeature.ProvinceAndCity> provinceAndCities,
-            List<String> its,
-            FeatureRelation relation
-    ) {
-        return new SearchRequest.FeatureInfo(
-                new KeywordFeature(keywords),
-                new DistrictFeature(provinceAndCities),
-                new ItFeature(its),
-                relation
-        );
+    private SearchRequest.FeatureInfo buildExampleFeatureInfo(List<String> keywords,
+                                                              List<DistrictFeature.ProvinceAndCity> provinceAndCities,
+                                                              List<String> its, FeatureRelation relation) {
+        return new SearchRequest.FeatureInfo(new KeywordFeature(keywords), new DistrictFeature(provinceAndCities),
+                new ItFeature(its), relation);
     }
 }
